@@ -1,0 +1,83 @@
+body{
+    border: 1px solid deepskyblue;
+}
+
+header,footer{
+    background-color: greenyellow;
+    padding:5px;
+}
+
+main{
+    padding:5px;
+}
+
+table{
+    border-collapse: collapse;
+    border: 2px solid black;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+thead{
+    background-color: lightblue;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 8px 10px;
+}
+
+
+.un-employe {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid black;
+}
+
+
+.infos-employe {
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.infos-employe:last-child {
+    border-bottom: none;
+}
+
+.info-employe {
+    padding: 10px;
+    flex: 1;
+}
+
+.infos-employe .info-employe:first-child {
+    font-weight: bold;
+    border-right: 1px solid black;
+    max-width: 150px;
+}
+
+.infos-employe .info-employe:last-child {
+    background-color: white;
+}
+
+.info-voiture{
+    display: grid;
+    border: 1px solid green;
+    margin:5px;
+    padding:5px;
+    width: fit-content;
+}
+
+.infos{
+    display: flex;
+}
+
+.erreur{
+    color:red;
+    font-weight: bold;
+}
+
+
