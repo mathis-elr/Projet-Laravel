@@ -23,16 +23,12 @@ class DatabaseSeeder extends Seeder
             CampuseSeeder::class,
         ]);
 
-        // Créer des relations aléatoires entre employés et campus
-        DB::table('frequente')->truncate();
-        $employes = Employe::all();
-        $campuses = Campuse::all();
 
-        foreach ($employes as $employe) {
-            // Attacher 1 à 2 campus aléatoires par employé
-            $employe->campuses()->syncWithoutDetaching(
-                $campuses->random(min(2, $campuses->count()))->pluck('id')
-            );
-        }
+        DB::table('frequente')->insert([
+            [
+                'id_employe' => 1,
+                'id_campuses' => 1,
+            ],
+        ]);
     }
 }
