@@ -11,12 +11,8 @@ class CampuseSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
     {
-        Campuse::create([
-            "description" => 'une description campus',
-            "adresse" => '44 rue defifi, Land',
-            "type" => 'un type de campus'
-        ]);
+        Campuse::factory(3)->create();
     }
 }

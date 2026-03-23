@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Campuse;
-use App\Models\User;
+use App\Models\Employe;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
+    public function run()
     {
         $this->call([
             EmployeSeeder::class,
@@ -23,11 +23,16 @@ class DatabaseSeeder extends Seeder
             CampuseSeeder::class,
         ]);
 
-        DB::table('frequente')->insert([
-            [
-                'id_employe' => 1,
-                'id_campuses' => 1,
-            ],
-        ]);
+        // Créer des relations aléatoires entre employés et campus
+        DB::table('frequente')->truncate();
+        $employes = Employe::all();
+        $campuses = Campuse::all();
+
+        foreach ($employes as $employe) {
+            // Attacher 1 à 2 campus aléatoires par employé
+            $employe->campuses()->syncWithoutDetaching(
+                $campuses->random(min(2, $campuses->count()))->pluck('id')
+            );
+        }
     }
 }

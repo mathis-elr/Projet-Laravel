@@ -11,12 +11,8 @@ class VoitureSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
     {
-        Voiture::create([
-            'modele' => 'Clio',
-            'nb_places' => 4,
-            'id_employe' => 1,
-        ]);
+        Voiture::factory(5)->create();
     }
 }
