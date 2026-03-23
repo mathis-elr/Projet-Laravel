@@ -18,7 +18,7 @@ class Employe extends Model
 
     public function trajets()
     {
-        return $this->belongsToMany(Trajet::class, 'est_passager', 'id_trajet');
+        return $this->belongsToMany(Trajet::class, 'est_passage', 'id_employe', 'id_trajet');
     }
 
     public function campuses()

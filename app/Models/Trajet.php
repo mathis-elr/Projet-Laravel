@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Trajet extends Model
 {
+    protected $table = 'trajet';
     protected $fillable = ["date_time_depart","date_time_arrive", "id_campuses_depart", "id_campuses_arrivee", "id_voiture"];
 
     public function campuseDep()
@@ -25,6 +26,6 @@ class Trajet extends Model
 
     public function employes()
     {
-        return $this->belongsToMany(Employe::class,'est_passager',"id_employe","id");
+        return $this->belongsToMany(Employe::class,'est_passage',"id_trajet","id_employe");
     }
 }
